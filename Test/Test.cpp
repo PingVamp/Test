@@ -92,22 +92,5 @@ int main(int argc, char* argv[])
     {
         cout << strings[i] << endl;
     }
-    //cout << "Чекаем вариант просто нажать энтер" << endl;
-    /*cin.get(f);
-    if (f == '\n')
-    {
-        cout << "Просто нажать энтер сработало";
-    }
-    else
-    {
-        cout << "Видно не судьба";
-    }*/
-
-    /*while (i != argc)
-    {
-        std::cout << argv[i] << "\n";
-        i++;
-        std::cin >> f;
-    }*/
 }
 
