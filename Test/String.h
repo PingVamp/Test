@@ -7,9 +7,11 @@ using namespace std;
 
 class String
 {
-	char* _string;
-	size_t _size;
+private:
+    size_t _size;
+    char* _string;
 public:
+    String() = default;
     explicit String(const char* str)  //Базовый конструктор
     {
         //std::cout << "string constructed " << str << std::endl;
@@ -64,11 +66,13 @@ public:
     }
     const char* GetString() { return _string; }
     size_t GetSize() { return _size; }
+    void SetSize(int size) { _size = size; }
     ~String() noexcept
     {
         delete[] _string;
     }
     friend ostream& operator<<(ostream& os, const String& str);
+    friend istream& operator>>(istream& is, String& str);
 };
 
 ostream& operator<<(ostream& os, const String& str)
@@ -76,6 +80,15 @@ ostream& operator<<(ostream& os, const String& str)
     os << str._string;
     return os;
 }
+
+/*istream& operator>>(istream& is, String& str)
+{
+    cout << "gcount = " << is.gcount() << endl;
+    str._size = is.gcount();
+    str._string = new char[str._size];
+    is >> str._string;
+    return is;
+}*/
 
 String operator+(String str1, String str2)
 {

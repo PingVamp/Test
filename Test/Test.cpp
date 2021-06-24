@@ -6,6 +6,8 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <sstream>
+#include <limits>
 
 bool cmp(String str1, String str2)
 {
@@ -76,38 +78,54 @@ bool cmp(String str1, String str2)
 int main(int argc, char* argv[])
 {
     setlocale(LC_ALL, "Russian");
-    char f = ' ';
+    char* buff = new char[20];
     vector<String> strings;
+    bool exit = false;
     for (int i = 1; i<argc; i++)
     {
         strings.push_back(String(argv[i]));
     }
-    for (auto string : strings)
+    int buffsize = 0;
+    while (exit == false)
     {
-        cout << string << endl;
+        delete[] buff;
+        buff = new char[20];
+        cout << "Введите размер строки" << endl;
+        cout << "Введите q для выхода" << endl;
+        cout << "Введите l для вывода введенных строк в обратном лексикографическом порядке" << endl;
+        cin.getline(buff, 20);
+        if (buff[0] == 'q')
+        {
+            exit = true;
+            delete[] buff;
+            continue;
+        }
+        if (buff[0] == 'l')
+        {
+            std::sort(strings.begin(), strings.end(), cmp);
+            for (int i = strings.size() - 1; i >= 0; i--)
+            {
+                cout << strings[i] << endl;
+            }
+        }
+        else
+        {
+            stringstream strValue;
+            strValue << buff;
+            strValue >> buffsize;
+            if (buffsize == 0)
+            {
+                cout << "Введите размер строки числом" << endl;
+                continue;
+            }
+            delete[] buff;
+            buff = new char[buffsize+1];
+            cout << "Введите строку" << endl;
+            cin.getline(buff, buffsize + 1);
+            strings.push_back(String(buff));
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
     }
-    cout << endl;
-    std::sort(strings.begin(), strings.end(), cmp);
-    for (int i = strings.size() - 1; i >= 0; i--)
-    {
-        cout << strings[i] << endl;
-    }
-    //cout << "Чекаем вариант просто нажать энтер" << endl;
-    /*cin.get(f);
-    if (f == '\n')
-    {
-        cout << "Просто нажать энтер сработало";
-    }
-    else
-    {
-        cout << "Видно не судьба";
-    }*/
-
-    /*while (i != argc)
-    {
-        std::cout << argv[i] << "\n";
-        i++;
-        std::cin >> f;
-    }*/
 }
 
