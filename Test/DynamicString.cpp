@@ -27,6 +27,8 @@ DynamicString& DynamicString::operator=(const char* str)
 	_size = strlen(str) + 1;
 	_string = new char[_size];
 	strcpy_s(_string, _size, str);
+
+    return *this;
 }
 
 DynamicString& DynamicString::operator=(const DynamicString& other)
