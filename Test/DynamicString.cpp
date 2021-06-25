@@ -55,6 +55,11 @@ char& DynamicString::operator[](int index)
 	return _string[index];
 }
 
+char& DynamicString::operator[](size_t index)
+{
+    return _string[index];
+}
+
 ostream& operator<<(ostream& os, const DynamicString& str)
 {
 	os << str._string;

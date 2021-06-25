@@ -18,6 +18,7 @@ public:
     DynamicString& operator=(const DynamicString& other); //Оператор копирования пристваивания
     DynamicString& operator=(DynamicString&& other) noexcept;  //Оператор присваивания перемещения
     char& operator[](int index);     //Получение элемента по индексу
+    char& operator[](size_t index);
     const char* GetString() { return _string; }
     size_t GetSize() { return _size; }
     void SetSize(int size) { _size = size; }
