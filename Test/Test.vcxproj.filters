@@ -18,9 +18,12 @@
     <ClCompile Include="Test.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
+    <ClCompile Include="DynamicString.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="String.h">
+    <ClInclude Include="DynamicString.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
   </ItemGroup>
