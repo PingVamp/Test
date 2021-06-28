@@ -1,8 +1,6 @@
 #pragma once
 #include <iostream>
 #include <cstring>
-#include <string>
-using namespace std;
 
 class DynamicString
 {
@@ -26,7 +24,7 @@ public:
     {
         delete[] _string;
     }
-    friend ostream& operator<<(ostream& os, const DynamicString& str); //Оператор вывода строки
+    friend std::ostream& operator<<(std::ostream& os, const DynamicString& str); //Оператор вывода строки
 };
 
 //Операторы сложения строк
