@@ -21,6 +21,7 @@ int main(int argc, char* argv[])
     bool exit = false;                  //Переменная для проверки на выход
     while (!exit)                       
     {
+        BUFFER_SIZE = 20;
         delete[] buff;
         buff = new char[BUFFER_SIZE];
         std::cout << "Введите размер строки" << std::endl;
@@ -50,7 +51,6 @@ int main(int argc, char* argv[])
             if (BUFFER_SIZE == 0)          //Если пользователь не ввел число, возващение в началало цикла
             {
                 std::cout << "Введите размер строки числом" << std::endl;
-                BUFFER_SIZE = 20;
                 continue;
             }
             delete[] buff;
